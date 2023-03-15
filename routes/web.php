@@ -20,12 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('register', [\App\Http\Controllers\RegisterController::class, 'create']);
+Route::post('register', [\App\Http\Controllers\RegisterController::class, 'store']);
+
 Route::match(['get', 'post'], '/login', function() {
     //...
 });
-Route::match(['get', 'post'], '/signup', function() {
-    //...
-});
+
 Route::get('/logout', function() {
     //...
 });
