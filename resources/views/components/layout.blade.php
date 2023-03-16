@@ -46,14 +46,17 @@
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            @auth()
-                    <a href="/logout" class="text-sm font-semibold leading-6 text-gray-900">Log Out<span
+                @auth()
+                    <form method="POST" action="/logout"
+                          class="text-sm font-semibold leading-6 text-gray-900">
+                        @csrf
+                        <button type="submit">Log Out<span
+                                aria-hidden="true">&rarr;</span></button>
+                    </form>
+                @else()
+                    <a href="/login" class="ml-4 text-sm font-semibold leading-6 text-gray-900">Log in <span
                             aria-hidden="true">&rarr;</span></a>
-            @else()
-                    <a href="/register" class="text-sm font-semibold leading-6 text-gray-900">Sign up</a>
-                    <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                            aria-hidden="true">&rarr;</span></a>
-            @endguest
+                @endguest
             </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
@@ -100,9 +103,11 @@
                                 </form>
                             @else
                                 <a href="/register"
-                                   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign Up</a>
+                                   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign
+                                    Up</a>
                                 <a href="/login"
-                                   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                                   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+                                    in</a>
                             @endauth()
                         </div>
                     </div>
