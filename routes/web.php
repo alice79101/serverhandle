@@ -22,7 +22,10 @@ Route::get('/', function () {
 
 Route::get('register', [\App\Http\Controllers\RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [\App\Http\Controllers\RegisterController::class, 'store'])->middleware('guest');
-Route::post('logout', [\App\Http\Controllers\SessionsController::class, 'destroy']);
+
+
+Route::post('login', [\App\Http\Controllers\SessionsController::class, 'create'])->middleware('guest');
+Route::post('logout', [\App\Http\Controllers\SessionsController::class, 'destroy'])->middleware('auth');
 //
 //Route::match(['get', 'post'], '/login', function() {
 //    //...
