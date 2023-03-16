@@ -46,8 +46,14 @@
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                        aria-hidden="true">&rarr;</span></a>
+            @auth()
+                    <a href="/logout" class="text-sm font-semibold leading-6 text-gray-900">Log Out<span
+                            aria-hidden="true">&rarr;</span></a>
+            @else()
+                    <a href="/register" class="text-sm font-semibold leading-6 text-gray-900">Sign up</a>
+                    <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+                            aria-hidden="true">&rarr;</span></a>
+            @endguest
             </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
@@ -86,9 +92,18 @@
                                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                         </div>
                         <div class="py-6">
-                            <a href="#"
-                               class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                                in</a>
+                            @auth()
+                                <form method="POST" action="/logout"
+                                      class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    @csrf
+                                    <button type="submit">Log Out</button>
+                                </form>
+                            @else
+                                <a href="/register"
+                                   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign Up</a>
+                                <a href="/login"
+                                   class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                            @endauth()
                         </div>
                     </div>
                 </div>
@@ -96,8 +111,8 @@
         </div>
     </div>
 </div>
-    {{ $slot }}
-    <x-flash />
+{{ $slot }}
+<x-flash/>
 
 
 </body>
