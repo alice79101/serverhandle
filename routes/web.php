@@ -20,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('register', [\App\Http\Controllers\RegisterController::class, 'create']);
-Route::post('register', [\App\Http\Controllers\RegisterController::class, 'store']);
+Route::get('register', [\App\Http\Controllers\RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [\App\Http\Controllers\RegisterController::class, 'store'])->middleware('guest');
 
 Route::match(['get', 'post'], '/login', function() {
     //...
