@@ -23,6 +23,7 @@ class SessionsController extends Controller
         if (auth()->attempt($attributes)) {
             // 如果驗證通過
             session()->regenerate();  // 避免session fixation攻擊
+                                      // redirect with a success flash message
             return redirect('/')->with('success', 'Welcome Back!');
         }
         // 驗證不通過
@@ -35,7 +36,6 @@ class SessionsController extends Controller
         ]);
 
 
-        // redirect with a success flash message
 
     }
     public function destroy()
