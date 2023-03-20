@@ -7,7 +7,7 @@
             <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Login</h2>
             <p class="mt-2 text-center text-sm text-gray-600"></p>
         </div>
-        <form class="mt-8 space-y-6" action="/sessions" method="POST">
+        <form class="mt-8 space-y-6" action="/login" method="POST">
             @csrf
             {{--            <input type="hidden" name="remember" value="true">--}}
             <div class="-space-y-px rounded-md shadow-sm">
