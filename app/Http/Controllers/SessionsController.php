@@ -24,7 +24,8 @@ class SessionsController extends Controller
             // 如果驗證通過
             session()->regenerate();  // 避免session fixation攻擊
                                       // redirect with a success flash message
-            return redirect('/')->with('success', 'Welcome Back!');
+//            return redirect('dashboard')->with('success', 'Welcome Back!');
+            return redirect('dashboard');
         }
         // 驗證不通過
 //        return back()

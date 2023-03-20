@@ -27,6 +27,12 @@ Route::post('register', [\App\Http\Controllers\RegisterController::class, 'store
 Route::get('login', [\App\Http\Controllers\SessionsController::class, 'create'])->middleware('guest');
 Route::post('sessions', [\App\Http\Controllers\SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [\App\Http\Controllers\SessionsController::class, 'destroy'])->middleware('auth');
+Route::get('dashboard', function() {
+    return view('dashboard');
+})->middleware('auth');
+//Route::get('dashboard', function () {
+//    return view('dashboard');
+//})->middleware('auth.login');
 //
 //Route::match(['get', 'post'], '/login', function() {
 //    //...
