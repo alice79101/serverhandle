@@ -37,3 +37,10 @@ Route::get('dashboard', function() {
 //Route::match(['get', 'post'], '/login', function() {
 //    //...
 //});
+//Route::get('posts', function () {
+//    return view('posts.posts', );
+//});
+
+Route::get('posts', function() {
+    return view('posts.posts');
+})->middleware('auth');
