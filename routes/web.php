@@ -42,5 +42,13 @@ Route::get('dashboard', function() {
 //});
 
 Route::get('posts', function() {
-    return view('posts.posts');
+    return view('posts.posts', [
+        'post' => \App\Models\Post::all()
+    ]);
 })->middleware('auth');
+
+Route::get('posts/{post}', function (\App\Models\Post $post) {
+    return view('posts.posts', [
+        'post' => $post
+    ]);
+});
