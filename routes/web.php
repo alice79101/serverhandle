@@ -41,14 +41,21 @@ Route::get('dashboard', function() {
 //    return view('posts.posts', );
 //});
 
-Route::get('posts', function() {
-    return view('posts.posts', [
-        'post' => \App\Models\Post::all()
-    ]);
-})->middleware('auth');
-
-Route::get('posts/{post}', function (\App\Models\Post $post) {
+Route::get('posts', function(\App\Models\Post $post) {
+//    ddd(\App\Models\Post::all());
     return view('posts.posts', [
         'post' => $post
     ]);
 });
+
+//Route::get('posts/{post}', function () {
+//    return view('posts.posts', [
+//        'post' => \App\Models\Post::all()
+//    ]);
+//});
+//
+//Route::get('posts/{category:category_name}', function (Category $category) {
+//    return view('posts.posts', [
+//        'post' => $category->posts
+//    ]);
+//});
