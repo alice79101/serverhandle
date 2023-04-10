@@ -15,14 +15,11 @@ use App\Models\User;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/', function () {
-    return \App\Models\User::all();
-});
-Route::get('/', function () {
-    return User::all();
-});
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//
+//Route::get('/', function () {
+//    return \App\Models\User::all();
+//});
 
